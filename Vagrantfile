@@ -9,6 +9,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/saucy/current/saucy-server-cloudimg-amd64-vagrant-disk1.box"
 
+  config.vm.synced_folder "../local_data", "/vagrant_data"
+
   config.vm.network  :private_network, ip: "10.11.12.13"
 
   config.berkshelf.enabled = true
@@ -33,7 +35,7 @@ Vagrant.configure("2") do |config|
       },
       :meteor_windows => {
         :apps => [
-          "mymeteorapp"
+          "preppermeteorapp"
         ]
       }
     }
